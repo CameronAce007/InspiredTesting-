@@ -40,10 +40,6 @@ describe('My First Test suite', function() {
         cy.wait(5000);
 
         // Fill out the form fields inside the iframe
-        // cy.iframe('#ssf_M041SzNMTjPQTTU3TNI1STMw1U00NDTXTTU0N042S0kxNTMwAQA')
-        //   .find("input[default-placeholder='*First Name']")
-        //   .should('be.visible') // Ensure element is visible before interacting
-        //   .clear().type('Cameron');
         cy.iframe('#ssf_M041SzNMTjPQTTU3TNI1STMw1U00NDTXTTU0N042S0kxNTMwAQA')
         .find("input[default-placeholder='*First Name']")
         .should('to.be.visible')  // Ensure the element is visible
@@ -73,23 +69,14 @@ describe('My First Test suite', function() {
 
         cy.wait(5000);
 
-        //Dynamic dropdown
-        // cy.get('#field_1field_3296038914').type('south africa');  
-
-        // //Wait for the dropdown menu items to be visible and iterate over them
-        // cy.get('.country').should('be.visible').each(($e1) => {
-        // // Use case-insensitive comparison for text
-        // if ($e1.text().trim().toLowerCase() === 'south africa') 
-        // {
-        // cy.wrap($e1).click();  // Wrap the element in Cypress and click
-        // }
-        cy.iframe('#ssf_M04zMTU1T07UTU1OMtc1MTaw1LU0MrLUTbRMMbI0MEo2NjdOBQA')
-        .find("select[name='field_3296038914']").eq(0).select('South Africa');
+        cy.iframe('#ssf_M041SzNMTjPQTTU3TNI1STMw1U00NDTXTTU0N042S0kxNTMwAQA')
+        .find("select[name='field_3296038914']").eq(0).select('South Africa')
   
         cy.wait(5000);
 
-        // Static dropdown
-        cy.get('select').select('option3').should('have.value','option3');
+        cy.iframe('#ssf_M041SzNMTjPQTTU3TNI1STMw1U00NDTXTTU0N042S0kxNTMwAQA')
+        .find("select[name='field_200000000474115']").select('Training').should('have.value','Training')
+
 
 
     });
